@@ -69,8 +69,7 @@ Quality and sustainability are at the heart of everything we do. We're dedicated
 We're also excited to explore new horizons. Our goal is to expand our reach and introduce Kopi Luwak to coffee lovers around the globe. Whether you're a seasoned connoisseur or new to the world of specialty coffee, we want you to experience the magic of our brew.
 
 Join us on this exciting journey! We invite you to be part of our story as we continue to innovate and share the rich flavors of Kopi Luwak. Together, let's celebrate the artistry of coffee and the passion that drives us every day.`,
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Coffee%20Beans-Yx9Yd9Iy9Yd9Iy9Yd9Iy9Yd9Iy9Yd9Iy9Yd9I.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-61KJYnmD8Fv9bRagg8XFOSPkwud3uB.png",
     imageAlt: "Roasted Luwak coffee beans",
   },
   {
@@ -85,8 +84,7 @@ Don't forget to follow us on social media! Join our community of coffee enthusia
 And if you want to stay in the loop, subscribe to our newsletter for exclusive offers, new product launches, and stories from the heart of Indonesia.
 
 Thank you for being part of the Original Luwak family. Together, let's celebrate the beauty of coffee and the connections it creates!`,
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Coffee%20Cup-Yx9Yd9Iy9Yd9Iy9Yd9Iy9Yd9Iy9Yd9Iy9Yd9I.jpg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-nI5lssOsB76tKQBqdJ1sDcpo1M3ULc.png",
     imageAlt: "Cup of brewed Luwak coffee",
   },
 ]
@@ -144,7 +142,7 @@ export default function OurStory() {
       <section className="relative h-[400px] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Coffee%20Hero-Yx9Yd9Iy9Yd9Iy9Yd9Iy9Yd9Iy9Yd9Iy9Yd9I.jpg"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Coffee%20Plantation-027s1JZ4gRRE9qjUqkllPfh7rr0HtR.png"
             alt="The story of Original Luwak coffee"
             fill
             className="object-cover brightness-50"

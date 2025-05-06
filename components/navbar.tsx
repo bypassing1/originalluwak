@@ -67,12 +67,6 @@ export default function Navbar() {
             >
               Gift Sets
             </Link>
-            <Link
-              href="/contact"
-              className="text-gold-100 hover:text-gold-400 font-medium text-sm uppercase tracking-wider"
-            >
-              Contact
-            </Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -144,13 +138,6 @@ export default function Navbar() {
                   onClick={() => setIsOpen(false)}
                 >
                   Gift Sets
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-gold-100 py-2 text-sm uppercase tracking-wider"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Contact
                 </Link>
                 <div className="pt-4">
                   <Button variant="gold" className="w-full">

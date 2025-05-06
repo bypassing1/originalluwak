@@ -112,15 +112,18 @@ export default function GiftSets() {
                 making it the perfect gift for special occasions, corporate presents, or to treat yourself to something
                 extraordinary.
               </p>
-              <div className="flex justify-center">
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Certificate%20from%20AEKI%20%20-%20FnB%20Tech-4vDthqstLKiE9hN2KqE3iRcnG8F8vA.png"
-                  alt="Certificate of Authenticity"
-                  width={120}
-                  height={80}
-                  className="mr-6"
-                />
-                <div className="text-left">
+              <div className="flex flex-col md:flex-row items-center justify-center bg-navy-800/50 p-6 rounded-lg border border-gold-900/30 shadow-lg">
+                <div className="mb-6 md:mb-0 md:mr-8">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Certificate%20from%20AEKI%20%20-%20FnB%20Tech-4vDthqstLKiE9hN2KqE3iRcnG8F8vA.png"
+                    alt="Certificate of Authenticity"
+                    width={180}
+                    height={120}
+                    className="rounded-md border border-gold-900/30"
+                  />
+                </div>
+                <div className="text-left max-w-xl">
+                  <h4 className="text-lg font-bold text-gold-100 mb-2">Certificate of Authenticity</h4>
                   <p className="text-base text-gold-200">
                     All our gift sets include a certificate of authenticity from the Association of Indonesian Coffee
                     Exporters and Industries (AEKI), guaranteeing the genuine origin and ethical production of our Luwak

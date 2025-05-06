@@ -24,53 +24,50 @@ const products = [
     rating: 5,
   },
   {
-    id: 2,
-    name: "Luwak Coffee Gift Set",
-    price: 89.99,
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Certificate%20from%20AEKI%20%20-%20FnB%20Tech-4vDthqstLKiE9hN2KqE3iRcnG8F8vA.png",
-    category: "Gift Sets",
-    weight: "500g",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Ground Luwak Coffee",
-    price: 39.99,
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/processing_kopi_luwak_hd-1bgEWvwYZWf6u5WtT7vLmE3FWlyKPq.png",
-    category: "Ground",
-    weight: "250g",
-    rating: 4,
-  },
-  {
-    id: 4,
-    name: "Luwak Coffee Single Sachets",
-    price: 29.99,
-    image:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arabica%20-%20Original%20Luwak%20Coffee%20%28Wild%20Civet%29.JPG-HARUETyhVyvrIV0BjquZdoC0ws8bXK.jpeg",
-    category: "Sachets",
-    weight: "100g",
-    rating: 4,
-  },
-  {
-    id: 5,
-    name: "Luxury Wooden Gift Box",
-    price: 129.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fTcYDNEonUi1V9OnwIvYGLbjFhl2G5.png",
-    category: "Gift Sets",
-    weight: "750g",
-    rating: 5,
-  },
-  {
-    id: 6,
-    name: "Luwak Coffee Sampler Pack",
-    price: 59.99,
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-4aoPG6d1rBOpsvrXfrrauSYz2NrKim.png",
-    category: "Samplers",
-    weight: "300g",
-    rating: 4,
-  },
+  id: 2,
+  name: "Artgift Standing Pouch",
+  price: 49.99,
+  image: "/images/StandingPouch.png",
+  category: "Pouches",
+  weight: "200g",
+  rating: 4,
+},
+{
+  id: 3,
+  name: "Gift Set",
+  price: 89.99,
+  image: "/images/Giftset.png",
+  category: "Gift Sets",
+  weight: "500g",
+  rating: 5,
+},
+{
+  id: 4,
+  name: "Aceh Craft Gift Set",
+  price: 79.99,
+  image: "/images/AcehCraftGiftSet.png",
+  category: "Gift Sets",
+  weight: "600g",
+  rating: 5,
+},
+{
+  id: 5,
+  name: "Premium Gift Box",
+  price: 129.99,
+  image: "/images/Artgift.png",
+  category: "Gift Sets",
+  weight: "750g",
+  rating: 5,
+},
+{
+  id: 6,
+  name: "Single Sachet Pack",
+  price: 29.99,
+  image: "/images/SingleSachet.png",
+  category: "Sachets",
+  weight: "100g",
+  rating: 4,
+},
 ]
 
 export default function Shop() {
@@ -96,9 +93,6 @@ export default function Shop() {
               Discover the world's most exclusive coffee, ethically sourced from the heart of Indonesia.
             </p>
           </div>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <GoldDivider />
         </div>
       </section>
 

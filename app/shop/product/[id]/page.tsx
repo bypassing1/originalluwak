@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ChevronRight, Minus, Plus, ShoppingBag, Star } from "lucide-react"
+import { ChevronRight, Minus, Plus, ShoppingBag, Star, Check, Award, Coffee } from "lucide-react"
 import { GoldDivider } from "@/components/ui/gold-divider"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { SectionHeading } from "@/components/ui/section-heading"
@@ -14,59 +14,90 @@ import { SectionHeading } from "@/components/ui/section-heading"
 export default function ProductPage({ params }: { params: { id: string } }) {
   const [quantity, setQuantity] = useState(1)
   const [activeImage, setActiveImage] = useState(0)
+  const [selectedRoasting, setSelectedRoasting] = useState("")
+  const [selectedType, setSelectedType] = useState("")
+  const [selectedPackaging, setSelectedPackaging] = useState("")
 
   // In a real app, you would fetch product data based on the ID
   const product = {
     id: params.id,
-    name: "Premium Luwak Coffee Beans",
-    price: 49.99,
+    name: "Premium Luwak Coffee",
+    price: {
+      min: 50,
+      max: 113,
+    },
     description:
-      "Experience the world's most exclusive coffee with our premium Luwak coffee beans. Sourced ethically from the heart of Indonesia, these beans offer a uniquely smooth, rich flavor with notes of chocolate, caramel, and a hint of earthiness.",
+      "Our Luwak Coffee is sourced from wild luwak and not caged. Genuine wild luwak certified and Halal Certified.",
     longDescription:
-      "Luwak Coffee, also known as Wild Civet Coffee, is one of the rarest and most exquisite coffee varieties in the world. This unique coffee is produced by the wild civet, a small mammal native to Southeast Asia. The process starts when the wild civet eats the ripest coffee cherries, which then pass through its digestive system. What makes this process so special is how the cherries are fermented inside the civet's stomach, imparting a unique flavor profile that cannot be replicated elsewhere.\n\nThe beans are then carefully handpicked from the wild civet's droppings, cleaned, and roasted to perfection, ensuring a cup of coffee that is truly extraordinary. Our Luwak coffee beans are ethically sourced from small, family-owned farms in Sumatra, Indonesia, where the perfect climate and rich volcanic soil create the ideal environment for coffee cultivation.",
+      "Indulge in the extraordinary experience of Luwak Coffee, also known as Kopi Luwak, renowned for its unique production process and exceptional flavor profile. This rare and highly sought-after coffee is produced from the excretion of wild Luwak in the lush jungles of Indonesia, resulting in a coffee like no other.\n\nFun fact: Kopi Luwak is the world's most exclusive (and expensive) coffee. The main reason for its high price is the unusual method of production.",
     images: [
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arabica%20-%20Luwak%20Liar%20%28Wild%20Civet%29.JPG-EERl6UAJ8IqW1H4XmsAFvKB4gq6KUH.jpeg",
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arabica%20-%20Original%20Luwak%20Coffee%20%28Wild%20Civet%29.JPG-HARUETyhVyvrIV0BjquZdoC0ws8bXK.jpeg",
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/processing_kopi_luwak_hd-1bgEWvwYZWf6u5WtT7vLmE3FWlyKPq.png",
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Certificate%20from%20AEKI%20%20-%20FnB%20Tech-4vDthqstLKiE9hN2KqE3iRcnG8F8vA.png",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arabica%20-%20Original%20Luwak%20Coffee%20%28Wild%20Civet%29.JPG-HARUETyhVyvrIV0BjquZdoC0ws8bXK.jpeg",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arabica%20-%20Original%20Luwak%20Coffee%20%28Wild%20Civet%29.JPG-HARUETyhVyvrIV0BjquZdoC0ws8bXK.jpeg",
     ],
     category: "Beans",
-    weight: "250g",
+    weight: "1kg",
     rating: 5,
     reviews: 24,
     inStock: true,
     options: {
-      grind: ["Whole Beans", "Coarse", "Medium", "Fine", "Extra Fine"],
-      weight: ["100g", "250g", "500g", "1kg"],
+      roasting: ["Green Beans", "Light Roast", "Medium Roast", "Medium to Dark Roast"],
+      type: ["Beans", "Ground/Powder"],
+      packaging: ["Jute Bag", "Pouch", "Drip"],
     },
-    features: [
-      "100% Wild Civet Coffee",
-      "Ethically sourced from Sumatra, Indonesia",
-      "Low acidity, smooth mouthfeel",
-      "Notes of chocolate, caramel, and earthy sweetness",
-      "Certified by the Association of Indonesian Coffee Exporters",
-    ],
+    characteristics: {
+      fragrance: "Fresh Nutty, vanilla, chocolate, strong and gentle almond",
+      flavor: "Herbal, Refreshing, Spicy",
+      acidity: "Soft-Medium",
+      body: "Soft-Mild",
+    },
+    specifications: {
+      screenSize: "15-18",
+      moisture: "Max 13%",
+      triage: "Max 6-8%",
+      defectValue: "6-8",
+    },
+    description_details: {
+      time: "9 Months",
+      production: "800 to 1500",
+      temperature: "13 to 28°C",
+      rainfall: "100 to 3000 mm",
+      altitude: "1200 to 1700 from Sea Level (asl)",
+      soilType:
+        "Black Soil /Soil Formed of Young Materials are very Fertile Volcanic and Contains Micro Nutrients Important to Plants.",
+      origin: "Indonesia",
+      areas: "Arabica Plantation Sumatra, Java, Bali",
+      caffeine: "0.8 to 1.4%",
+      seeds: "Flat with a Clear Midline",
+      character: "Balance body, acidity, sweetness, fine Chocolate, Almond",
+      harvest: "Collecting Luwak's Secretion",
+      processing: "Semi Washed Cleaning, manual dry hulled",
+    },
+    pricing: {
+      greenBeans: "USD 50 per kg (MOQ 50 kg)",
+      roastedBeans: "USD 92.4 per kg",
+      ground: "USD 94.4 per kg",
+      drip: "USD 113 per kg",
+    },
     relatedProducts: [
       {
         id: 2,
         name: "Luwak Coffee Gift Set",
         price: 89.99,
-        image:
-          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Certificate%20from%20AEKI%20%20-%20FnB%20Tech-4vDthqstLKiE9hN2KqE3iRcnG8F8vA.png",
+        image: "/images/Giftset.png",
       },
       {
         id: 3,
-        name: "Ground Luwak Coffee",
+        name: "Aceh Craft Gift Set",
         price: 39.99,
-        image:
-          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/processing_kopi_luwak_hd-1bgEWvwYZWf6u5WtT7vLmE3FWlyKPq.png",
+        image: "/images/AcehCraftGiftSet.png",
       },
       {
         id: 4,
-        name: "Luwak Coffee Single Sachets",
+        name: "Single Sachet",
         price: 29.99,
-        image:
-          "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arabica%20-%20Original%20Luwak%20Coffee%20%28Wild%20Civet%29.JPG-HARUETyhVyvrIV0BjquZdoC0ws8bXK.jpeg",
+        image: "/images/SingleSachet.png",
       },
     ],
   }
@@ -116,7 +147,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         </div>
-        <GoldDivider />
+        <div className="w-full">
+          <GoldDivider />
+        </div>
       </section>
 
       {/* Product Details */}
@@ -174,39 +207,63 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                     </div>
                     <span className="ml-2 text-sm text-gold-300">({product.reviews} reviews)</span>
                   </div>
-                  <p className="text-2xl font-bold text-gold-400 mb-4">${product.price.toFixed(2)}</p>
+                  <div className="mb-4">
+                    <h3 className="text-lg font-medium text-gold-200 mb-2">Price per 1 KG:</h3>
+                    <p className="text-2xl font-bold text-gold-400">
+                      ${product.price.min} – ${product.price.max}
+                    </p>
+                  </div>
                   <p className="text-gold-200 mb-6 leading-relaxed">{product.description}</p>
                 </div>
 
                 <div className="space-y-6 mb-8">
-                  {/* Grind Options */}
+                  <h3 className="text-lg font-medium text-gold-200 mb-4">Select variant:</h3>
+
+                  {/* Roasting Options */}
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gold-200">Grind</label>
-                    <Select defaultValue={product.options.grind[0]}>
+                    <label className="block text-sm font-medium mb-2 text-gold-200">Roasting</label>
+                    <Select value={selectedRoasting} onValueChange={setSelectedRoasting}>
                       <SelectTrigger className="w-full bg-navy-900 border-gold-900/30 text-gold-100">
-                        <SelectValue placeholder="Select grind" />
+                        <SelectValue placeholder="Choose an option" />
                       </SelectTrigger>
                       <SelectContent className="bg-navy-800 border-gold-900/30 text-gold-100">
-                        {product.options.grind.map((grind) => (
-                          <SelectItem key={grind} value={grind}>
-                            {grind}
+                        {product.options.roasting.map((roast) => (
+                          <SelectItem key={roast} value={roast}>
+                            {roast}
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
 
-                  {/* Weight Options */}
+                  {/* Type Options */}
                   <div>
-                    <label className="block text-sm font-medium mb-2 text-gold-200">Weight</label>
-                    <Select defaultValue={product.options.weight[1]}>
+                    <label className="block text-sm font-medium mb-2 text-gold-200">Type</label>
+                    <Select value={selectedType} onValueChange={setSelectedType}>
                       <SelectTrigger className="w-full bg-navy-900 border-gold-900/30 text-gold-100">
-                        <SelectValue placeholder="Select weight" />
+                        <SelectValue placeholder="Choose an option" />
                       </SelectTrigger>
                       <SelectContent className="bg-navy-800 border-gold-900/30 text-gold-100">
-                        {product.options.weight.map((weight) => (
-                          <SelectItem key={weight} value={weight}>
-                            {weight}
+                        {product.options.type.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Packaging Options */}
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-gold-200">Packaging</label>
+                    <Select value={selectedPackaging} onValueChange={setSelectedPackaging}>
+                      <SelectTrigger className="w-full bg-navy-900 border-gold-900/30 text-gold-100">
+                        <SelectValue placeholder="Choose an option" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-navy-800 border-gold-900/30 text-gold-100">
+                        {product.options.packaging.map((pkg) => (
+                          <SelectItem key={pkg} value={pkg}>
+                            {pkg}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -256,26 +313,14 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 </div>
 
                 <div className="border-t border-gold-900/30 pt-6">
-                  <h3 className="text-lg font-bold mb-4 text-gold-100">Features</h3>
-                  <ul className="space-y-3">
-                    {product.features.map((feature, index) => (
-                      <li key={index} className="flex items-start text-gold-200">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          className="w-5 h-5 text-gold-400 mr-3 flex-shrink-0 mt-0.5"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex items-center mb-4">
+                    <Award className="h-5 w-5 text-gold-400 mr-2" />
+                    <p className="text-gold-200">Kopi Luwak Coffee Certifications</p>
+                  </div>
+                  <p className="text-gold-200 text-sm mb-4">
+                    Contact us at <span className="text-gold-400">info@originalluwak.com</span> for bulk purchases and
+                    get a wholesale price for Luwak Coffee.
+                  </p>
                 </div>
               </div>
             </ScrollReveal>
@@ -285,16 +330,24 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
       {/* Product Tabs */}
       <section className="py-20 bg-navy-950">
-        <GoldDivider className="transform rotate-180" />
+        <div className="w-full">
+          <GoldDivider className="transform rotate-180" />
+        </div>
         <div className="container mx-auto px-4 pt-8">
           <ScrollReveal>
             <Tabs defaultValue="description" className="w-full">
-              <TabsList className="grid w-full md:w-auto md:inline-grid grid-cols-3 h-auto bg-navy-800/50 border border-gold-900/30 p-1 rounded-lg">
+              <TabsList className="grid w-full md:w-auto md:inline-grid grid-cols-4 h-auto bg-navy-800/50 border border-gold-900/30 p-1 rounded-lg">
                 <TabsTrigger
                   value="description"
                   className="py-3 data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md"
                 >
                   Description
+                </TabsTrigger>
+                <TabsTrigger
+                  value="characteristics"
+                  className="py-3 data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md"
+                >
+                  Characteristics
                 </TabsTrigger>
                 <TabsTrigger
                   value="details"
@@ -312,123 +365,260 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               <div className="mt-8 bg-navy-800/30 p-8 rounded-lg shadow-lg border border-gold-900/30">
                 <TabsContent value="description" className="mt-0">
                   <div className="prose max-w-none text-gold-200 space-y-6">
+                    <h3 className="text-xl font-bold mb-2 text-gold-100">About the Kopi Luwak</h3>
                     <p className="leading-relaxed">{product.longDescription}</p>
-                    <h3 className="text-xl font-bold mb-2 text-gold-100">Tasting Notes</h3>
-                    <p className="mb-4">When you brew a cup of our Luwak Coffee, expect to experience:</p>
-                    <ul className="space-y-3">
+
+                    <h3 className="text-xl font-bold mb-2 text-gold-100">Country of Origin and Production Areas</h3>
+                    <p className="mb-4">
+                      Our Luwak Coffee is proud of Indonesian – Aceh origin. These regions offer the perfect environment
+                      for the growth of coffee plants, resulting in exceptional beans that embody the essence of
+                      Indonesian coffee culture.
+                    </p>
+
+                    <h3 className="text-xl font-bold mb-2 text-gold-100">The Unique Flavors of Luwak Coffee</h3>
+                    <p className="mb-4">
+                      The remarkable flavor of Luwak Coffee is crafted through the digestive process of the luwak. The
+                      beans go through fermentation in the civet's intestine, leading to a distinct and unparalleled
+                      taste. With a balanced blend of body, acidity, and sweetness, Luwak Coffee entices the palate with
+                      a syrupy, smooth, and rich profile, accentuated by delightful hints of fine chocolate and almond.
+                    </p>
+
+                    <h3 className="text-xl font-bold mb-2 text-gold-100">Our Luwak Coffee Processing</h3>
+                    <p className="mb-4">
+                      Produced by our own people on 1,200 acres of our plantation, which has Organic Certification and
+                      legal certification by the local government of central Aceh.
+                    </p>
+
+                    <p className="mb-4">
+                      Three teams with a total of 18 people direct from our company collect the coffee beans from the
+                      wild luwak on our own land no contractors or farms are used, and the luwak are free to pick the
+                      choicest coffee beans available.
+                    </p>
+
+                    <p className="mb-4">
+                      After the beans are collected (PARCHMENT), we select only the best coffee beans, or about fifty
+                      percent of total coffee collected.
+                    </p>
+
+                    <p className="mb-4">
+                      The entire harvesting and manufacturing process is controlled and supervised by Indonesia
+                      Specialty Coffee.
+                    </p>
+
+                    <p className="mb-4">
+                      Thus we can maintain the excellent quality of our Kopi Luwak Coffee, producing it under pristine
+                      conditions in accordance with internationally recognized quality standards.
+                    </p>
+
+                    <p className="mb-4">
+                      Our Kopi Luwak Coffee is 100 percent safe and hygienic, thoroughly cleaned, hulled, and treated
+                      with ultraviolet to kill any possible bacteria.
+                    </p>
+
+                    <h3 className="text-xl font-bold mb-2 text-gold-100">Kopi Luwak Coffee Price per Kilogram (kg)</h3>
+                    <p className="mb-4">
+                      If you are wondering "how much is the price for luwak coffee?", we sell the best quality luwak
+                      Coffee at affordable prices below:
+                    </p>
+
+                    <ul className="space-y-2">
                       <li className="flex items-start">
-                        <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        <span>A rich, full-bodied taste</span>
+                        <Check className="h-5 w-5 text-gold-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <span>{product.pricing.greenBeans}</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        <span>Notes of chocolate, caramel, and a touch of earthy sweetness</span>
+                        <Check className="h-5 w-5 text-gold-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <span>{product.pricing.roastedBeans}</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        <span>A remarkably smooth finish, with no bitter aftertaste</span>
-                      </li>
-                    </ul>
-                    <h3 className="text-xl font-bold mb-2 text-gold-100">Brewing Recommendations</h3>
-                    <p className="mb-4">To fully appreciate the unique flavor profile of Luwak Coffee, we recommend:</p>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        <span>Use freshly filtered water heated to 90-96°C (195-205°F)</span>
+                        <Check className="h-5 w-5 text-gold-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <span>{product.pricing.ground}</span>
                       </li>
                       <li className="flex items-start">
-                        <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        <span>For pour-over methods, use a medium-fine grind</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        <span>For French press, use a coarse grind</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        <span>For espresso, use a fine grind</span>
+                        <Check className="h-5 w-5 text-gold-400 mr-3 mt-0.5 flex-shrink-0" />
+                        <span>{product.pricing.drip}</span>
                       </li>
                     </ul>
                   </div>
                 </TabsContent>
-                <TabsContent value="details" className="mt-0">
+
+                <TabsContent value="characteristics" className="mt-0">
                   <div className="grid md:grid-cols-2 gap-12">
                     <div>
-                      <h3 className="text-xl font-bold mb-6 text-gold-100">Product Specifications</h3>
+                      <h3 className="text-xl font-bold mb-6 text-gold-100">Characteristics</h3>
                       <div className="space-y-4 text-gold-200">
                         <div className="flex border-b border-gold-900/30 py-3">
-                          <span className="font-medium w-1/3">Origin</span>
-                          <span className="w-2/3">Sumatra, Indonesia</span>
+                          <span className="font-medium w-1/3">Fragrance/Aroma</span>
+                          <span className="w-2/3">{product.characteristics.fragrance}</span>
                         </div>
                         <div className="flex border-b border-gold-900/30 py-3">
-                          <span className="font-medium w-1/3">Variety</span>
-                          <span className="w-2/3">100% Arabica</span>
-                        </div>
-                        <div className="flex border-b border-gold-900/30 py-3">
-                          <span className="font-medium w-1/3">Process</span>
-                          <span className="w-2/3">Wild Civet Processed</span>
-                        </div>
-                        <div className="flex border-b border-gold-900/30 py-3">
-                          <span className="font-medium w-1/3">Roast Level</span>
-                          <span className="w-2/3">Medium</span>
-                        </div>
-                        <div className="flex border-b border-gold-900/30 py-3">
-                          <span className="font-medium w-1/3">Tasting Notes</span>
-                          <span className="w-2/3">Chocolate, Caramel, Earthy</span>
+                          <span className="font-medium w-1/3">Flavor</span>
+                          <span className="w-2/3">{product.characteristics.flavor}</span>
                         </div>
                         <div className="flex border-b border-gold-900/30 py-3">
                           <span className="font-medium w-1/3">Acidity</span>
-                          <span className="w-2/3">Low</span>
+                          <span className="w-2/3">{product.characteristics.acidity}</span>
                         </div>
                         <div className="flex border-b border-gold-900/30 py-3">
                           <span className="font-medium w-1/3">Body</span>
-                          <span className="w-2/3">Full</span>
+                          <span className="w-2/3">{product.characteristics.body}</span>
                         </div>
-                        <div className="flex py-3">
-                          <span className="font-medium w-1/3">Certification</span>
-                          <span className="w-2/3">AEKI Certified</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold mb-6 mt-10 text-gold-100">Specification</h3>
+                      <div className="space-y-4 text-gold-200">
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/3">Screen Size</span>
+                          <span className="w-2/3">{product.specifications.screenSize}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/3">Moisture</span>
+                          <span className="w-2/3">{product.specifications.moisture}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/3">Triage</span>
+                          <span className="w-2/3">{product.specifications.triage}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/3">Defect Value</span>
+                          <span className="w-2/3">{product.specifications.defectValue}</span>
                         </div>
                       </div>
                     </div>
+
                     <div>
-                      <h3 className="text-xl font-bold mb-6 text-gold-100">Shipping & Returns</h3>
-                      <div className="space-y-6 text-gold-200">
-                        <p className="leading-relaxed">
-                          We ship our coffee worldwide to ensure that everyone can experience the unique taste of Luwak
-                          Coffee.
-                        </p>
-                        <div>
-                          <h4 className="font-bold mb-3 text-gold-100">Shipping Information:</h4>
-                          <ul className="space-y-2">
-                            <li className="flex items-start">
-                              <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                              <span>Free shipping on orders over $100</span>
-                            </li>
-                            <li className="flex items-start">
-                              <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                              <span>Standard shipping: 3-5 business days</span>
-                            </li>
-                            <li className="flex items-start">
-                              <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                              <span>Express shipping: 1-2 business days</span>
-                            </li>
-                            <li className="flex items-start">
-                              <span className="h-2 w-2 bg-gold-400 rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                              <span>International shipping: 7-14 business days</span>
-                            </li>
-                          </ul>
+                      <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-900/30">
+                        <div className="flex items-center mb-4">
+                          <Coffee className="h-6 w-6 text-gold-400 mr-3" />
+                          <h3 className="text-xl font-bold text-gold-100">Premium Quality</h3>
                         </div>
-                        <div>
-                          <h4 className="font-bold mb-3 text-gold-100">Return Policy:</h4>
-                          <p className="leading-relaxed">
-                            If you're not completely satisfied with your purchase, you may return it within 30 days for
-                            a full refund. Please note that the product must be unopened and in its original packaging.
-                          </p>
+                        <p className="text-gold-200 mb-6">
+                          Original Kopi Luwak Coffee is selected from the finest and highest-grade Arabica coffee beans
+                          by the luwak (civet cat) itself. Because they only consume the best Arabica coffee cherry,
+                          guaranteed!
+                        </p>
+                        <p className="text-gold-200">
+                          We have our own Q-Grader onsite to ensure the cupping quality score is above 81. We serve this
+                          most expensive coffee for the premiere customer.
+                        </p>
+                      </div>
+
+                      <div className="mt-8 bg-navy-800/50 p-6 rounded-lg border border-gold-900/30">
+                        <div className="flex items-center mb-4">
+                          <Award className="h-6 w-6 text-gold-400 mr-3" />
+                          <h3 className="text-xl font-bold text-gold-100">Certifications</h3>
+                        </div>
+                        <p className="text-gold-200 mb-4">
+                          Our Luwak Coffee is certified by multiple organizations to ensure quality and ethical
+                          sourcing:
+                        </p>
+                        <ul className="space-y-3">
+                          <li className="flex items-start text-gold-200">
+                            <Check className="h-5 w-5 text-gold-400 mr-3 mt-0.5 flex-shrink-0" />
+                            <span>Wild Luwak Certified</span>
+                          </li>
+                          <li className="flex items-start text-gold-200">
+                            <Check className="h-5 w-5 text-gold-400 mr-3 mt-0.5 flex-shrink-0" />
+                            <span>Halal Certified</span>
+                          </li>
+                          <li className="flex items-start text-gold-200">
+                            <Check className="h-5 w-5 text-gold-400 mr-3 mt-0.5 flex-shrink-0" />
+                            <span>Organic Certified</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="details" className="mt-0">
+                  <div className="grid md:grid-cols-2 gap-12">
+                    <div>
+                      <h3 className="text-xl font-bold mb-6 text-gold-100">Description</h3>
+                      <div className="space-y-4 text-gold-200">
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Time from Flowers to Be Berry</span>
+                          <span className="w-1/2">{product.description_details.time}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Production (Kg/Ha)</span>
+                          <span className="w-1/2">{product.description_details.production}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Optimal Temperature</span>
+                          <span className="w-1/2">{product.description_details.temperature}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Optimal Rainfall</span>
+                          <span className="w-1/2">{product.description_details.rainfall}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Altitude</span>
+                          <span className="w-1/2">{product.description_details.altitude}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Soil Type</span>
+                          <span className="w-1/2">{product.description_details.soilType}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Country of Origin</span>
+                          <span className="w-1/2">{product.description_details.origin}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Production Areas</span>
+                          <span className="w-1/2">{product.description_details.areas}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold mb-6 text-gold-100">Additional Information</h3>
+                      <div className="space-y-4 text-gold-200">
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Caffeine Content</span>
+                          <span className="w-1/2">{product.description_details.caffeine}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Form of Seeds</span>
+                          <span className="w-1/2">{product.description_details.seeds}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Character Stew</span>
+                          <span className="w-1/2">{product.description_details.character}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Method of Harvest</span>
+                          <span className="w-1/2">{product.description_details.harvest}</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Processing Method</span>
+                          <span className="w-1/2">{product.description_details.processing}</span>
+                        </div>
+                      </div>
+
+                      <h3 className="text-xl font-bold mb-6 mt-10 text-gold-100">Weight & Packaging Options</h3>
+                      <div className="space-y-4 text-gold-200">
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Weight</span>
+                          <span className="w-1/2">1 kg</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Roasting Options</span>
+                          <span className="w-1/2">Green Beans, Light Roast, Medium Roast, Medium to Dark Roast</span>
+                        </div>
+                        <div className="flex border-b border-gold-900/30 py-3">
+                          <span className="font-medium w-1/2">Type Options</span>
+                          <span className="w-1/2">Beans, Ground/Powder</span>
+                        </div>
+                        <div className="flex py-3">
+                          <span className="font-medium w-1/2">Packaging Options</span>
+                          <span className="w-1/2">Jute Bag, Pouch, Drip</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </TabsContent>
+
                 <TabsContent value="reviews" className="mt-0">
                   <div className="space-y-8">
                     <div className="flex items-center justify-between">
@@ -526,7 +716,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
       {/* Related Products */}
       <section className="py-20 bg-navy-900">
-        <GoldDivider className="transform rotate-180" />
+        <div className="w-full">
+          <GoldDivider className="transform rotate-180" />
+        </div>
         <div className="container mx-auto px-4 pt-8">
           <ScrollReveal>
             <SectionHeading
@@ -547,7 +739,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                         src={relatedProduct.image || "/placeholder.svg"}
                         alt={relatedProduct.name}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                     </div>
