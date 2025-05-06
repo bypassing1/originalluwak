@@ -336,28 +336,28 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         <div className="container mx-auto px-4 pt-8">
           <ScrollReveal>
             <Tabs defaultValue="description" className="w-full">
-              <TabsList className="grid w-full md:w-auto md:inline-grid grid-cols-4 h-auto bg-navy-800/50 border border-gold-900/30 p-1 rounded-lg">
+              <TabsList className="flex flex-wrap w-full md:w-auto md:inline-flex h-auto bg-navy-800/50 border border-gold-900/30 p-1 rounded-lg">
                 <TabsTrigger
                   value="description"
-                  className="py-3 data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md"
+                  className="flex-1 py-3 px-2 text-sm md:text-base data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md mb-1 md:mb-0"
                 >
                   Description
                 </TabsTrigger>
                 <TabsTrigger
                   value="characteristics"
-                  className="py-3 data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md"
+                  className="flex-1 py-3 px-2 text-sm md:text-base data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md mb-1 md:mb-0"
                 >
                   Characteristics
                 </TabsTrigger>
                 <TabsTrigger
                   value="details"
-                  className="py-3 data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md"
+                  className="flex-1 py-3 px-2 text-sm md:text-base data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md mb-1 md:mb-0"
                 >
                   Details
                 </TabsTrigger>
                 <TabsTrigger
                   value="reviews"
-                  className="py-3 data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md"
+                  className="flex-1 py-3 px-2 text-sm md:text-base data-[state=active]:bg-gold-600 data-[state=active]:text-navy-950 rounded-md"
                 >
                   Reviews ({product.reviews})
                 </TabsTrigger>

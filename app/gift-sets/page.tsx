@@ -67,7 +67,7 @@ const giftSets = [
 
 export default function GiftSets() {
   return (
-    <div className="pt-24">
+    <div className="pt-24 overflow-x-hidden">
       {/* Hero Banner */}
       <section className="relative h-[400px] flex items-center">
         <div className="absolute inset-0 z-0">
@@ -151,7 +151,7 @@ export default function GiftSets() {
             />
           </ScrollReveal>
 
-          <div className="space-y-32">
+          <div className="space-y-32 overflow-hidden">
             {giftSets.map((giftSet, index) => (
               <div
                 key={giftSet.id}
@@ -175,16 +175,16 @@ export default function GiftSets() {
                   direction={index % 2 === 0 ? "right" : "left"}
                   className={`${index % 2 !== 0 ? "md:order-1" : ""}`}
                 >
-                  <div className="bg-navy-900 p-10 rounded-lg shadow-xl border border-gold-900/30 h-full">
+                  <div className="bg-navy-900 p-10 rounded-lg shadow-xl border border-gold-900/30 h-full max-w-full">
                     <h3 className="text-3xl font-bold mb-3 text-gold-100">{giftSet.name}</h3>
                     <p className="text-3xl font-bold text-gold-400 mb-6">${giftSet.price.toFixed(2)}</p>
-                    <p className="text-gold-200 text-lg mb-8">{giftSet.description}</p>
+                    <p className="text-gold-200 text-lg mb-8 break-words">{giftSet.description}</p>
 
                     <div className="mb-8">
                       <h4 className="text-xl font-bold mb-4 text-gold-100">What's Included:</h4>
-                      <ul className="space-y-3">
+                      <ul className="space-y-3 overflow-hidden">
                         {giftSet.includes.map((item, i) => (
-                          <li key={i} className="flex items-start text-gold-200">
+                          <li key={i} className="flex items-start text-gold-200 break-words">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               viewBox="0 0 24 24"
@@ -197,7 +197,7 @@ export default function GiftSets() {
                                 clipRule="evenodd"
                               />
                             </svg>
-                            {item}
+                            <span className="flex-1">{item}</span>
                           </li>
                         ))}
                       </ul>
