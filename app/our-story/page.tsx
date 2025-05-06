@@ -159,9 +159,6 @@ export default function OurStory() {
             </p>
           </div>
         </div>
-        <div className="w-full">
-          <GoldDivider />
-        </div>
       </section>
 
       {/* Story Content */}

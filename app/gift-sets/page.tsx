@@ -90,9 +90,6 @@ export default function GiftSets() {
             </p>
           </div>
         </div>
-        <div className="w-full">
-          <GoldDivider />
-        </div>
       </section>
 
       {/* Gift Sets Introduction */}

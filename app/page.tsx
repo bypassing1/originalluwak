@@ -93,9 +93,6 @@ export default function Home() {
             </motion.div>
           </div>
         </div>
-        <div className="w-full">
-          <GoldDivider />
-        </div>
       </section>
 
       {/* What is Luwak Coffee Section */}
