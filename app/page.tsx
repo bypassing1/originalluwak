@@ -173,7 +173,9 @@ export default function Home() {
 
       {/* Production Process Section */}
       <section className="py-32 bg-navy-950 relative">
-        <GoldDivider className="transform rotate-180" />
+        <div className="w-full">
+          <GoldDivider className="transform rotate-180" />
+        </div>
         <div className="container mx-auto px-4 pt-8">
           <ScrollReveal>
             <SectionHeading
@@ -261,7 +263,9 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </div>
-        <GoldDivider />
+        <div className="w-full">
+          <GoldDivider />
+        </div>
       </section>
 
       {/* Why Choose Section */}
@@ -345,7 +349,9 @@ export default function Home() {
 
       {/* Taste Section */}
       <section className="py-32 bg-navy-950 relative">
-        <GoldDivider className="transform rotate-180" />
+        <div className="w-full">
+          <GoldDivider className="transform rotate-180" />
+        </div>
         <div className="container mx-auto px-4 pt-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <ScrollReveal direction="left">
@@ -391,7 +397,9 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </div>
-        <GoldDivider />
+        <div className="w-full">
+          <GoldDivider />
+        </div>
       </section>
 
       {/* Product Showcase */}
@@ -412,10 +420,10 @@ export default function Home() {
               <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
                 <div className="relative h-80">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arabica%20-%20Luwak%20Liar%20%28Wild%20Civet%29.JPG-EERl6UAJ8IqW1H4XmsAFvKB4gq6KUH.jpeg"
+                    src="/images/StandingPouch.png"
                     alt="Artgift Standing Pouch"
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
@@ -436,10 +444,10 @@ export default function Home() {
               <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
                 <div className="relative h-80">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Certificate%20from%20AEKI%20%20-%20FnB%20Tech-4vDthqstLKiE9hN2KqE3iRcnG8F8vA.png"
+                    src="/images/Giftset.png"
                     alt="Gift Set"
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
@@ -460,10 +468,10 @@ export default function Home() {
               <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
                 <div className="relative h-80">
                   <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/processing_kopi_luwak_hd-1bgEWvwYZWf6u5WtT7vLmE3FWlyKPq.png"
+                    src="/images/AcehCraftGiftSet.png"
                     alt="Aceh Craft Gift Set"
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
@@ -471,6 +479,54 @@ export default function Home() {
                   <h3 className="text-xl font-bold mb-3 text-gold-100">Aceh Craft Gift Set</h3>
                   <p className="text-gold-400 font-bold mb-6 text-2xl">$79.99</p>
                   <Link href="/shop/product/3">
+                    <Button variant="gold" className="w-full py-5 text-base">
+                      Add to Cart
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Product 4 */}
+            <ScrollReveal delay={0.4}>
+              <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
+                <div className="relative h-80">
+                  <Image
+                    src="/images/Artgift.png"
+                    alt="Premium Gift Box"
+                    fill
+                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-3 text-gold-100">Premium Gift Box</h3>
+                  <p className="text-gold-400 font-bold mb-6 text-2xl">$129.99</p>
+                  <Link href="/shop/product/4">
+                    <Button variant="gold" className="w-full py-5 text-base">
+                      Add to Cart
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Product 5 */}
+            <ScrollReveal delay={0.5}>
+              <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
+                <div className="relative h-80">
+                  <Image
+                    src="/images/SingleSachet.png"
+                    alt="Single Sachet Pack"
+                    fill
+                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-bold mb-3 text-gold-100">Single Sachet Pack</h3>
+                  <p className="text-gold-400 font-bold mb-6 text-2xl">$29.99</p>
+                  <Link href="/shop/product/5">
                     <Button variant="gold" className="w-full py-5 text-base">
                       Add to Cart
                     </Button>
@@ -490,7 +546,9 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </div>
-        <GoldDivider />
+        <div className="w-full">
+          <GoldDivider />
+        </div>
       </section>
 
       {/* CTA Section */}

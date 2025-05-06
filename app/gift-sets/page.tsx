@@ -13,7 +13,7 @@ const giftSets = [
     id: 1,
     name: "Premium Gift Box",
     price: 129.99,
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/images/Giftset.png",
     description:
       "Our flagship gift set featuring 250g of premium Luwak coffee beans, a handcrafted wooden box, and a ceramic brewing cup.",
     includes: ["250g Premium Luwak Coffee Beans", "Handcrafted Wooden Box", "Ceramic Brewing Cup", "Brewing Guide"],
@@ -22,7 +22,7 @@ const giftSets = [
     id: 2,
     name: "Luwak Experience Set",
     price: 89.99,
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/images/Artgift.png",
     description:
       "A complete Luwak coffee experience with beans, ground coffee, and single-serve sachets in an elegant gift box.",
     includes: [
@@ -37,7 +37,7 @@ const giftSets = [
     id: 3,
     name: "Artisan Collection",
     price: 149.99,
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/images/AcehCraftGiftSet.png",
     description:
       "Our artisan collection featuring coffee from three different regions of Indonesia, presented in a handwoven traditional basket.",
     includes: [
@@ -52,7 +52,7 @@ const giftSets = [
     id: 4,
     name: "Corporate Gift Set",
     price: 199.99,
-    image: "/placeholder.svg?height=600&width=800",
+    image: "/images/StandingPouch.png",
     description:
       "Perfect for business gifts, this premium set includes coffee, branded merchandise, and can be customized with your company logo.",
     includes: [
@@ -72,7 +72,7 @@ export default function GiftSets() {
       <section className="relative h-[400px] flex items-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=400&width=1920"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Coffee%20Plantation-027s1JZ4gRRE9qjUqkllPfh7rr0HtR.png"
             alt="Luxury gift sets featuring premium Luwak coffee"
             fill
             className="object-cover brightness-50"
@@ -90,7 +90,7 @@ export default function GiftSets() {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
+        <div className="w-full">
           <GoldDivider />
         </div>
       </section>
@@ -135,7 +135,7 @@ export default function GiftSets() {
 
       {/* Gift Sets Showcase */}
       <section className="py-32 bg-navy-950 relative">
-        <div className="absolute top-0 left-0 right-0">
+        <div className="w-full">
           <GoldDivider className="transform rotate-180" />
         </div>
         <div className="container mx-auto px-4 pt-8">
@@ -159,7 +159,12 @@ export default function GiftSets() {
                   className={`${index % 2 !== 0 ? "md:order-2" : ""}`}
                 >
                   <div className="relative h-[500px] rounded-lg overflow-hidden shadow-2xl border border-gold-900/30">
-                    <Image src={giftSet.image || "/placeholder.svg"} alt={giftSet.name} fill className="object-cover" />
+                    <Image
+                      src={giftSet.image || "/placeholder.svg"}
+                      alt={giftSet.name}
+                      fill
+                      className="object-contain p-4"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                   </div>
                 </ScrollReveal>
@@ -211,7 +216,7 @@ export default function GiftSets() {
             ))}
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
+        <div className="w-full">
           <GoldDivider />
         </div>
       </section>
@@ -293,10 +298,10 @@ export default function GiftSets() {
             <ScrollReveal direction="right">
               <div className="relative h-[600px] rounded-lg overflow-hidden border border-gold-900/30 shadow-2xl">
                 <Image
-                  src="/placeholder.svg?height=600&width=800"
+                  src="/images/SingleSachet.png"
                   alt="Custom Luwak Coffee gift sets"
                   fill
-                  className="object-cover"
+                  className="object-contain p-4"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
               </div>
@@ -307,7 +312,7 @@ export default function GiftSets() {
 
       {/* CTA Section */}
       <section className="py-32 bg-navy-950 text-gold-100 relative">
-        <div className="absolute top-0 left-0 right-0">
+        <div className="w-full">
           <GoldDivider className="transform rotate-180" />
         </div>
         <div className="container mx-auto px-4 text-center pt-8">

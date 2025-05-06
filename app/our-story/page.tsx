@@ -161,8 +161,8 @@ export default function OurStory() {
             </p>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <GoldDivider className="h-16" />
+        <div className="w-full">
+          <GoldDivider />
         </div>
       </section>
 
