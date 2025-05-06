@@ -8,7 +8,6 @@ import { Slider } from "@/components/ui/slider"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Search, SlidersHorizontal } from "lucide-react"
-import { GoldDivider } from "@/components/ui/gold-divider"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 
@@ -24,50 +23,50 @@ const products = [
     rating: 5,
   },
   {
-  id: 2,
-  name: "Artgift Standing Pouch",
-  price: 49.99,
-  image: "/images/StandingPouch.png",
-  category: "Pouches",
-  weight: "200g",
-  rating: 4,
-},
-{
-  id: 3,
-  name: "Gift Set",
-  price: 89.99,
-  image: "/images/Giftset.png",
-  category: "Gift Sets",
-  weight: "500g",
-  rating: 5,
-},
-{
-  id: 4,
-  name: "Aceh Craft Gift Set",
-  price: 79.99,
-  image: "/images/AcehCraftGiftSet.png",
-  category: "Gift Sets",
-  weight: "600g",
-  rating: 5,
-},
-{
-  id: 5,
-  name: "Premium Gift Box",
-  price: 129.99,
-  image: "/images/Artgift.png",
-  category: "Gift Sets",
-  weight: "750g",
-  rating: 5,
-},
-{
-  id: 6,
-  name: "Single Sachet Pack",
-  price: 29.99,
-  image: "/images/SingleSachet.png",
-  category: "Sachets",
-  weight: "100g",
-  rating: 4,
-},
+    id: 2,
+    name: "Standing Pouch",
+    price: 49.99,
+    image: "/images/StandingPouch.png",
+    category: "Pouches",
+    weight: "200g",
+    rating: 4,
+  },
+  {
+    id: 3,
+    name: "GiftSet",
+    price: 89.99,
+    image: "/images/Giftset.png",
+    category: "Gift Sets",
+    weight: "500g",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "Aceh Craft Gift Set",
+    price: 79.99,
+    image: "/images/AcehCraftGiftSet.png",
+    category: "Gift Sets",
+    weight: "600g",
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: "Artgift",
+    price: 129.99,
+    image: "/images/Artgift.png",
+    category: "Gift Sets",
+    weight: "750g",
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: "Single Sachet",
+    price: 29.99,
+    image: "/images/SingleSachet.png",
+    category: "Sachets",
+    weight: "100g",
+    rating: 4,
+  },
 ]
 
 export default function Shop() {

@@ -421,14 +421,14 @@ export default function Home() {
                 <div className="relative h-80">
                   <Image
                     src="/images/StandingPouch.png"
-                    alt="Artgift Standing Pouch"
+                    alt="Standing Pouch"
                     fill
                     className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">Artgift Standing Pouch</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gold-100">Standing Pouch</h3>
                   <p className="text-gold-400 font-bold mb-6 text-2xl">$49.99</p>
                   <Link href="/shop/product/1">
                     <Button variant="gold" className="w-full py-5 text-base">
@@ -445,14 +445,14 @@ export default function Home() {
                 <div className="relative h-80">
                   <Image
                     src="/images/Giftset.png"
-                    alt="Gift Set"
+                    alt="GiftSet"
                     fill
                     className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">Gift Set</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gold-100">GiftSet</h3>
                   <p className="text-gold-400 font-bold mb-6 text-2xl">$89.99</p>
                   <Link href="/shop/product/2">
                     <Button variant="gold" className="w-full py-5 text-base">
@@ -493,14 +493,14 @@ export default function Home() {
                 <div className="relative h-80">
                   <Image
                     src="/images/Artgift.png"
-                    alt="Premium Gift Box"
+                    alt="Artgift"
                     fill
                     className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">Premium Gift Box</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gold-100">Artgift</h3>
                   <p className="text-gold-400 font-bold mb-6 text-2xl">$129.99</p>
                   <Link href="/shop/product/4">
                     <Button variant="gold" className="w-full py-5 text-base">
@@ -517,14 +517,14 @@ export default function Home() {
                 <div className="relative h-80">
                   <Image
                     src="/images/SingleSachet.png"
-                    alt="Single Sachet Pack"
+                    alt="Single Sachet"
                     fill
                     className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">Single Sachet Pack</h3>
+                  <h3 className="text-xl font-bold mb-3 text-gold-100">Single Sachet</h3>
                   <p className="text-gold-400 font-bold mb-6 text-2xl">$29.99</p>
                   <Link href="/shop/product/5">
                     <Button variant="gold" className="w-full py-5 text-base">
