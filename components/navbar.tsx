@@ -32,68 +32,68 @@ export default function Navbar() {
         scrolled ? "bg-navy-950/90 backdrop-blur-md border-b border-gold-900/30" : "bg-transparent",
       )}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-3 py-3">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/original-luwak-logo-gold.png"
               alt="Original Luwak"
-              width={180}
-              height={50}
-              className="h-10 w-auto"
+              width={160}
+              height={45}
+              className="h-8 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gold-100 hover:text-gold-400 font-medium text-sm uppercase tracking-wider">
+          <nav className="hidden md:flex items-center space-x-6">
+            <Link href="/" className="text-gold-100 hover:text-gold-400 font-medium text-xs uppercase tracking-wider">
               Home
             </Link>
             <Link
               href="/our-story"
-              className="text-gold-100 hover:text-gold-400 font-medium text-sm uppercase tracking-wider"
+              className="text-gold-100 hover:text-gold-400 font-medium text-xs uppercase tracking-wider"
             >
               Our Story
             </Link>
             <Link
               href="/shop"
-              className="text-gold-100 hover:text-gold-400 font-medium text-sm uppercase tracking-wider"
+              className="text-gold-100 hover:text-gold-400 font-medium text-xs uppercase tracking-wider"
             >
               Shop
             </Link>
             <Link
               href="/gift-sets"
-              className="text-gold-100 hover:text-gold-400 font-medium text-sm uppercase tracking-wider"
+              className="text-gold-100 hover:text-gold-400 font-medium text-xs uppercase tracking-wider"
             >
               Gift Sets
             </Link>
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
             <button aria-label="Search" className="text-gold-100 hover:text-gold-400">
-              <Search className="h-5 w-5" />
+              <Search className="h-4 w-4" />
             </button>
             <Link href="/cart" className="text-gold-100 hover:text-gold-400 relative">
-              <ShoppingBag className="h-5 w-5" />
-              <span className="absolute -top-2 -right-2 bg-gold-600 text-navy-950 text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+              <ShoppingBag className="h-4 w-4" />
+              <span className="absolute -top-1.5 -right-1.5 bg-gold-600 text-navy-950 text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-semibold">
                 0
               </span>
             </Link>
-            <Button variant="gold" size="sm">
+            <Button variant="gold" size="sm" className="text-xs h-7 px-3">
               Shop Now
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center space-x-4">
+          <div className="flex md:hidden items-center space-x-3">
             <Link href="/cart" className="text-gold-100 relative">
-              <ShoppingBag className="h-5 w-5" />
-              <span className="absolute -top-2 -right-2 bg-gold-600 text-navy-950 text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+              <ShoppingBag className="h-4 w-4" />
+              <span className="absolute -top-1.5 -right-1.5 bg-gold-600 text-navy-950 text-[10px] rounded-full h-4 w-4 flex items-center justify-center font-semibold">
                 0
               </span>
             </Link>
             <button onClick={() => setIsOpen(!isOpen)} className="text-gold-100" aria-label="Toggle menu">
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -109,38 +109,38 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-navy-900 border-t border-gold-900/30"
           >
-            <div className="container mx-auto px-4 py-4">
-              <nav className="flex flex-col space-y-4">
+            <div className="container mx-auto px-3 py-3">
+              <nav className="flex flex-col space-y-3">
                 <Link
                   href="/"
-                  className="text-gold-100 py-2 text-sm uppercase tracking-wider"
+                  className="text-gold-100 py-1.5 text-xs uppercase tracking-wider"
                   onClick={() => setIsOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   href="/our-story"
-                  className="text-gold-100 py-2 text-sm uppercase tracking-wider"
+                  className="text-gold-100 py-1.5 text-xs uppercase tracking-wider"
                   onClick={() => setIsOpen(false)}
                 >
                   Our Story
                 </Link>
                 <Link
                   href="/shop"
-                  className="text-gold-100 py-2 text-sm uppercase tracking-wider"
+                  className="text-gold-100 py-1.5 text-xs uppercase tracking-wider"
                   onClick={() => setIsOpen(false)}
                 >
                   Shop
                 </Link>
                 <Link
                   href="/gift-sets"
-                  className="text-gold-100 py-2 text-sm uppercase tracking-wider"
+                  className="text-gold-100 py-1.5 text-xs uppercase tracking-wider"
                   onClick={() => setIsOpen(false)}
                 >
                   Gift Sets
                 </Link>
-                <div className="pt-4">
-                  <Button variant="gold" className="w-full">
+                <div className="pt-3">
+                  <Button variant="gold" size="sm" className="w-full text-xs">
                     Shop Now
                   </Button>
                 </div>

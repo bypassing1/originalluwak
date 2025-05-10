@@ -10,6 +10,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { ArrowRight, Award, Coffee, Leaf, Star } from "lucide-react"
 import { motion } from "framer-motion"
 import { VideoModal } from "@/components/ui/video-modal"
+import { NavigationGrid } from "@/components/navigation-grid"
 
 export default function Home() {
   const [videoModal, setVideoModal] = useState<{
@@ -59,7 +60,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl md:text-7xl font-bold mb-8 text-gold-100">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gold-100">
                 DISCOVER THE RICH TASTE OF INDONESIA
               </h1>
             </motion.div>
@@ -68,7 +69,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <p className="text-xl md:text-2xl mb-10 text-gold-200 leading-relaxed">
+              <p className="text-lg md:text-xl mb-8 text-gold-200 leading-relaxed">
                 Welcome to Original Luwak, where the ancient tradition of Luwak Coffee meets modern-day passion for the
                 finest coffee in the world. Grown in the lush landscapes of Indonesia, our premium Civet Coffee offers
                 an unparalleled taste that's rich, smooth, and unforgettable.
@@ -81,12 +82,12 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <Link href="/shop">
-                <Button variant="gold" size="lg" className="text-lg px-8 py-6 w-full sm:w-auto">
+                <Button variant="gold" size="lg" className="text-base px-6 py-5 w-full sm:w-auto">
                   Shop Now
                 </Button>
               </Link>
               <Link href="/our-story">
-                <Button variant="gold-outline" size="lg" className="text-lg px-8 py-6 w-full sm:w-auto">
+                <Button variant="gold-outline" size="lg" className="text-base px-6 py-5 w-full sm:w-auto">
                   Our Story
                 </Button>
               </Link>
@@ -95,25 +96,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Navigation Grid */}
+      <NavigationGrid />
+
       {/* What is Luwak Coffee Section */}
-      <section className="py-32 bg-navy-900 relative">
+      <section className="py-24 bg-navy-900 relative">
         <div className="container mx-auto px-4">
           <ScrollReveal>
-            <div className="text-center mb-16">
-              <span className="text-gold-400 text-lg uppercase tracking-wider">LUWAK COFFEE</span>
+            <div className="text-center mb-12">
+              <span className="text-gold-400 text-base uppercase tracking-wider">LUWAK COFFEE</span>
               <SectionHeading
                 title="WHAT IS LUWAK COFFEE?"
                 subtitle="WORLD'S RAREST & MOST EXPENSIVE COFFEE"
                 center
-                className="mt-4"
+                className="mt-3"
               />
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <ScrollReveal direction="left">
               <div>
-                <p className="text-gold-200 mb-8 leading-relaxed text-lg">
+                <p className="text-gold-200 mb-6 leading-relaxed text-base">
                   Luwak Coffee, also known as Wild Civet Coffee, is one of the rarest and most exquisite coffee
                   varieties in the world. This unique coffee is produced by the wild civet, a small mammal native to
                   Southeast Asia. The process starts when the wild civet eats the ripest coffee cherries, which then
@@ -121,14 +125,14 @@ export default function Home() {
                   fermented inside the civet's stomach, imparting a unique flavor profile that cannot be replicated
                   elsewhere.
                 </p>
-                <p className="text-gold-200 mb-10 leading-relaxed text-lg">
+                <p className="text-gold-200 mb-8 leading-relaxed text-base">
                   The beans are then carefully handpicked from the wild civet's droppings, cleaned, and roasted to
                   perfection, ensuring a cup of coffee that is truly extraordinary.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-6">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <Button
                     variant="gold"
-                    className="text-base px-6 py-5"
+                    className="text-sm px-5 py-4"
                     onClick={() =>
                       openVideoModal(
                         "Wild Luwak Coffee",
@@ -140,7 +144,7 @@ export default function Home() {
                   </Button>
                   <Button
                     variant="gold-outline"
-                    className="text-base px-6 py-5"
+                    className="text-sm px-5 py-4"
                     onClick={() =>
                       openVideoModal(
                         "Luwak Foraging",
@@ -154,7 +158,7 @@ export default function Home() {
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right">
-              <div className="relative h-[500px] rounded-lg overflow-hidden border border-gold-900/30 shadow-xl shadow-navy-950/50">
+              <div className="relative h-[450px] rounded-lg overflow-hidden border border-gold-900/30 shadow-xl shadow-navy-950/50">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fTcYDNEonUi1V9OnwIvYGLbjFhl2G5.png"
                   alt="Civet eating coffee cherries"
@@ -169,34 +173,34 @@ export default function Home() {
       </section>
 
       {/* Production Process Section */}
-      <section className="py-32 bg-navy-950 relative">
+      <section className="py-24 bg-navy-950 relative">
         <div className="w-full">
           <GoldDivider className="transform rotate-180" />
         </div>
-        <div className="container mx-auto px-4 pt-8">
+        <div className="container mx-auto px-4 pt-6">
           <ScrollReveal>
             <SectionHeading
               title="THE ART OF LUWAK COFFEE PRODUCTION"
               subtitle="A TRADITION PASSED DOWN THROUGH GENERATIONS"
               center
-              className="mb-20"
+              className="mb-16"
             />
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Step 1 */}
             <ScrollReveal delay={0.1}>
-              <div className="bg-navy-900 p-10 rounded-lg shadow-lg border border-gold-900/30 flex flex-col h-full transform transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-gold-900/10">
-                <div className="bg-gradient-to-r from-gold-600 to-gold-500 rounded-full w-16 h-16 flex items-center justify-center mb-8 shadow-md shadow-gold-900/20">
-                  <span className="text-navy-950 font-bold text-xl">1</span>
+              <div className="bg-navy-900 p-8 rounded-lg shadow-lg border border-gold-900/30 flex flex-col h-full transform transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-gold-900/10">
+                <div className="bg-gradient-to-r from-gold-600 to-gold-500 rounded-full w-14 h-14 flex items-center justify-center mb-6 shadow-md shadow-gold-900/20">
+                  <span className="text-navy-950 font-bold text-lg">1</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-6 text-gold-100">NATURE'S PERFECT START — THE COFFEE CHERRY</h3>
-                <p className="text-gold-300 flex-grow text-lg">
+                <h3 className="text-xl font-bold mb-4 text-gold-100">NATURE'S PERFECT START — THE COFFEE CHERRY</h3>
+                <p className="text-gold-300 flex-grow text-base">
                   Our story begins with the coffee cherry. Grown in the rich volcanic soils of Sumatra, these cherries
                   are carefully nurtured by small, family-owned farms. The climate of Indonesia, with its year-round
                   warmth and rainfall, provides the perfect environment for the coffee trees to thrive.
                 </p>
-                <div className="mt-8 h-64 relative rounded-md overflow-hidden border border-gold-900/30">
+                <div className="mt-6 h-56 relative rounded-md overflow-hidden border border-gold-900/30">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Luwak%20Coffee%20Plantation-027s1JZ4gRRE9qjUqkllPfh7rr0HtR.png"
                     alt="Coffee plantation in Indonesia"
@@ -210,20 +214,18 @@ export default function Home() {
 
             {/* Step 2 */}
             <ScrollReveal delay={0.2}>
-              <div className="bg-navy-900 p-10 rounded-lg shadow-lg border border-gold-900/30 flex flex-col h-full transform transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-gold-900/10">
-                <div className="bg-gradient-to-r from-gold-600 to-gold-500 rounded-full w-16 h-16 flex items-center justify-center mb-8 shadow-md shadow-gold-900/20">
-                  <span className="text-navy-950 font-bold text-xl">2</span>
+              <div className="bg-navy-900 p-8 rounded-lg shadow-lg border border-gold-900/30 flex flex-col h-full transform transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-gold-900/10">
+                <div className="bg-gradient-to-r from-gold-600 to-gold-500 rounded-full w-14 h-14 flex items-center justify-center mb-6 shadow-md shadow-gold-900/20">
+                  <span className="text-navy-950 font-bold text-lg">2</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-6 text-gold-100">
-                  THE CIVET'S TOUCH — NATURE'S SECRET INGREDIENT
-                </h3>
-                <p className="text-gold-300 flex-grow text-lg">
+                <h3 className="text-xl font-bold mb-4 text-gold-100">THE CIVET'S TOUCH — NATURE'S SECRET INGREDIENT</h3>
+                <p className="text-gold-300 flex-grow text-base">
                   Here's where the magic happens. Unlike traditional coffee, Luwak Coffee begins its journey not in a
                   coffee plantation but in the stomach of the civet. The civet, a small, cat-like creature, forages for
                   the most succulent, ripe cherries during its nightly adventures. The cherries pass through the civet's
                   digestive system, where the natural fermentation process begins.
                 </p>
-                <div className="mt-8 h-64 relative rounded-md overflow-hidden border border-gold-900/30">
+                <div className="mt-6 h-56 relative rounded-md overflow-hidden border border-gold-900/30">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-YNVP64vSOQDZmdFMTXfYKMfItIUqht.png"
                     alt="Luwak coffee collection process"
@@ -237,17 +239,17 @@ export default function Home() {
 
             {/* Step 3 */}
             <ScrollReveal delay={0.3}>
-              <div className="bg-navy-900 p-10 rounded-lg shadow-lg border border-gold-900/30 flex flex-col h-full transform transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-gold-900/10">
-                <div className="bg-gradient-to-r from-gold-600 to-gold-500 rounded-full w-16 h-16 flex items-center justify-center mb-8 shadow-md shadow-gold-900/20">
-                  <span className="text-navy-950 font-bold text-xl">3</span>
+              <div className="bg-navy-900 p-8 rounded-lg shadow-lg border border-gold-900/30 flex flex-col h-full transform transition-transform duration-300 hover:translate-y-[-5px] hover:shadow-gold-900/10">
+                <div className="bg-gradient-to-r from-gold-600 to-gold-500 rounded-full w-14 h-14 flex items-center justify-center mb-6 shadow-md shadow-gold-900/20">
+                  <span className="text-navy-950 font-bold text-lg">3</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-6 text-gold-100">THE COLLECTION — NATURE'S BOUNTY</h3>
-                <p className="text-gold-300 flex-grow text-lg">
+                <h3 className="text-xl font-bold mb-4 text-gold-100">THE COLLECTION — NATURE'S BOUNTY</h3>
+                <p className="text-gold-300 flex-grow text-base">
                   After the cherries have passed through the civet's digestive system, the beans are retrieved from the
                   droppings. Though the process may sound unusual, the beans are carefully handpicked by skilled
                   workers. It is at this stage that the magic of Luwak Coffee truly reveals itself.
                 </p>
-                <div className="mt-8 h-64 relative rounded-md overflow-hidden border border-gold-900/30">
+                <div className="mt-6 h-56 relative rounded-md overflow-hidden border border-gold-900/30">
                   <Image
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-4aoPG6d1rBOpsvrXfrrauSYz2NrKim.png"
                     alt="Processing Luwak coffee beans"
@@ -266,23 +268,23 @@ export default function Home() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-32 bg-navy-900 text-gold-100 relative">
+      <section className="py-24 bg-navy-900 text-gold-100 relative">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <SectionHeading
               title="WHY CHOOSE OUR LUWAK COFFEE?"
               subtitle="UNPARALLELED QUALITY AND TASTE"
               center
-              className="mb-20"
+              className="mb-16"
             />
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <ScrollReveal delay={0.1}>
-              <div className="bg-navy-800/50 p-8 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
-                <Coffee className="h-14 w-14 mb-6 text-gold-400" />
-                <h3 className="text-2xl font-bold mb-4 text-gold-100">Authentic Indonesian Flavor</h3>
-                <p className="text-gold-300 text-lg">
+              <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
+                <Coffee className="h-12 w-12 mb-5 text-gold-400" />
+                <h3 className="text-xl font-bold mb-3 text-gold-100">Authentic Indonesian Flavor</h3>
+                <p className="text-gold-300 text-base">
                   Experience the true essence of Indonesian coffee with every sip. Our Civet Coffee offers a rich,
                   velvety flavor with notes of chocolate, caramel, and a hint of spice.
                 </p>
@@ -290,10 +292,10 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <div className="bg-navy-800/50 p-8 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
-                <Leaf className="h-14 w-14 mb-6 text-gold-400" />
-                <h3 className="text-2xl font-bold mb-4 text-gold-100">Eco-Friendly and Sustainable</h3>
-                <p className="text-gold-300 text-lg">
+              <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
+                <Leaf className="h-12 w-12 mb-5 text-gold-400" />
+                <h3 className="text-xl font-bold mb-3 text-gold-100">Eco-Friendly and Sustainable</h3>
+                <p className="text-gold-300 text-base">
                   We work with local farmers who practice sustainable farming methods, ensuring that the production of
                   Luwak Coffee benefits both the environment and the communities that rely on it.
                 </p>
@@ -301,10 +303,10 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <div className="bg-navy-800/50 p-8 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
-                <Award className="h-14 w-14 mb-6 text-gold-400" />
-                <h3 className="text-2xl font-bold mb-4 text-gold-100">Rare and Exclusive</h3>
-                <p className="text-gold-300 text-lg">
+              <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
+                <Award className="h-12 w-12 mb-5 text-gold-400" />
+                <h3 className="text-xl font-bold mb-3 text-gold-100">Rare and Exclusive</h3>
+                <p className="text-gold-300 text-base">
                   Due to its labor-intensive production process, Luwak Coffee is a rare treasure. Each cup is an
                   indulgence that connects you with Indonesia's rich coffee heritage.
                 </p>
@@ -312,12 +314,12 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.4}>
-              <div className="bg-navy-800/50 p-8 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
-                <div className="h-14 w-14 mb-6 text-gold-400 flex items-center justify-center">
+              <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
+                <div className="h-12 w-12 mb-5 text-gold-400 flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="36"
-                    height="36"
+                    width="32"
+                    height="32"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -333,8 +335,8 @@ export default function Home() {
                     <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gold-100">Perfect for Gifting</h3>
-                <p className="text-gold-300 text-lg">
+                <h3 className="text-xl font-bold mb-3 text-gold-100">Perfect for Gifting</h3>
+                <p className="text-gold-300 text-base">
                   Our beautifully packaged Luwak Coffee makes a perfect gift for coffee connoisseurs or anyone who
                   appreciates high-quality, unique coffee.
                 </p>
@@ -345,14 +347,14 @@ export default function Home() {
       </section>
 
       {/* Taste Section */}
-      <section className="py-32 bg-navy-950 relative">
+      <section className="py-24 bg-navy-950 relative">
         <div className="w-full">
           <GoldDivider className="transform rotate-180" />
         </div>
-        <div className="container mx-auto px-4 pt-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="container mx-auto px-4 pt-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <ScrollReveal direction="left">
-              <div className="relative h-[600px] rounded-lg overflow-hidden border border-gold-900/30 shadow-xl shadow-navy-950/50">
+              <div className="relative h-[500px] rounded-lg overflow-hidden border border-gold-900/30 shadow-xl shadow-navy-950/50">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Arabica%20-%20Original%20Luwak%20Coffee%20%28Wild%20Civet%29.JPG-HARUETyhVyvrIV0BjquZdoC0ws8bXK.jpeg"
                   alt="Cup of Luwak coffee"
@@ -365,28 +367,28 @@ export default function Home() {
             <ScrollReveal direction="right">
               <div>
                 <SectionHeading title="HOW LUWAK COFFEE TASTES:" subtitle="AN EXTRAORDINARY SENSORY EXPERIENCE" />
-                <p className="text-gold-200 mb-8 leading-relaxed text-lg">
+                <p className="text-gold-200 mb-6 leading-relaxed text-base">
                   Luwak Coffee is unlike any other coffee you've tasted. It has a smooth, mellow body with an incredible
                   depth of flavor. The natural fermentation process inside the civet imparts a low acidity and smooth
                   mouthfeel, making it easy to drink and perfect for any time of day.
                 </p>
-                <p className="text-gold-200 mb-8 leading-relaxed text-lg">
+                <p className="text-gold-200 mb-6 leading-relaxed text-base">
                   When you brew a cup of Luwak Coffee, expect to experience:
                 </p>
-                <ul className="space-y-6 mb-10">
-                  <li className="flex items-center text-gold-200 text-lg">
-                    <Star className="h-6 w-6 mr-4 text-gold-400 flex-shrink-0" />A rich, full-bodied taste
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center text-gold-200 text-base">
+                    <Star className="h-5 w-5 mr-3 text-gold-400 flex-shrink-0" />A rich, full-bodied taste
                   </li>
-                  <li className="flex items-center text-gold-200 text-lg">
-                    <Star className="h-6 w-6 mr-4 text-gold-400 flex-shrink-0" />
+                  <li className="flex items-center text-gold-200 text-base">
+                    <Star className="h-5 w-5 mr-3 text-gold-400 flex-shrink-0" />
                     Notes of chocolate, caramel, and a touch of earthy sweetness
                   </li>
-                  <li className="flex items-center text-gold-200 text-lg">
-                    <Star className="h-6 w-6 mr-4 text-gold-400 flex-shrink-0" />A remarkably smooth finish, with no
+                  <li className="flex items-center text-gold-200 text-base">
+                    <Star className="h-5 w-5 mr-3 text-gold-400 flex-shrink-0" />A remarkably smooth finish, with no
                     bitter aftertaste
                   </li>
                 </ul>
-                <p className="text-gold-200 leading-relaxed text-lg">
+                <p className="text-gold-200 leading-relaxed text-base">
                   Whether you enjoy it black or with milk, every sip of our Luwak Coffee is a reminder of the
                   dedication, care, and craftsmanship that go into creating this one-of-a-kind brew.
                 </p>
@@ -400,22 +402,22 @@ export default function Home() {
       </section>
 
       {/* Product Showcase */}
-      <section className="py-32 bg-navy-950 relative">
-        <div className="container mx-auto px-4 pt-8">
+      <section className="py-24 bg-navy-950 relative">
+        <div className="container mx-auto px-4 pt-6">
           <ScrollReveal>
             <SectionHeading
               title="OUR PREMIUM PRODUCTS"
               subtitle="CRAFTED WITH PASSION AND EXPERTISE"
               center
-              className="mb-20"
+              className="mb-16"
             />
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Product 1 */}
             <ScrollReveal delay={0.1}>
               <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-80">
+                <div className="relative h-72">
                   <Image
                     src="/images/StandingPouch.png"
                     alt="Standing Pouch"
@@ -424,11 +426,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">Standing Pouch</h3>
-                  <p className="text-gold-400 font-bold mb-6 text-2xl">$49.99</p>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-2 text-gold-100">Standing Pouch</h3>
+                  <p className="text-gold-400 font-bold mb-4 text-xl">$49.99</p>
                   <Link href="/shop/product/1">
-                    <Button variant="gold" className="w-full py-5 text-base">
+                    <Button variant="gold" className="w-full py-4 text-sm">
                       Add to Cart
                     </Button>
                   </Link>
@@ -439,7 +441,7 @@ export default function Home() {
             {/* Product 2 */}
             <ScrollReveal delay={0.2}>
               <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-80">
+                <div className="relative h-72">
                   <Image
                     src="/images/Giftset.png"
                     alt="GiftSet"
@@ -448,11 +450,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">GiftSet</h3>
-                  <p className="text-gold-400 font-bold mb-6 text-2xl">$89.99</p>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-2 text-gold-100">GiftSet</h3>
+                  <p className="text-gold-400 font-bold mb-4 text-xl">$89.99</p>
                   <Link href="/shop/product/2">
-                    <Button variant="gold" className="w-full py-5 text-base">
+                    <Button variant="gold" className="w-full py-4 text-sm">
                       Add to Cart
                     </Button>
                   </Link>
@@ -463,7 +465,7 @@ export default function Home() {
             {/* Product 3 */}
             <ScrollReveal delay={0.3}>
               <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-80">
+                <div className="relative h-72">
                   <Image
                     src="/images/AcehCraftGiftSet.png"
                     alt="Aceh Craft Gift Set"
@@ -472,11 +474,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">Aceh Craft Gift Set</h3>
-                  <p className="text-gold-400 font-bold mb-6 text-2xl">$79.99</p>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-2 text-gold-100">Aceh Craft Gift Set</h3>
+                  <p className="text-gold-400 font-bold mb-4 text-xl">$79.99</p>
                   <Link href="/shop/product/3">
-                    <Button variant="gold" className="w-full py-5 text-base">
+                    <Button variant="gold" className="w-full py-4 text-sm">
                       Add to Cart
                     </Button>
                   </Link>
@@ -487,7 +489,7 @@ export default function Home() {
             {/* Product 4 */}
             <ScrollReveal delay={0.4}>
               <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-80">
+                <div className="relative h-72">
                   <Image
                     src="/images/Artgift.png"
                     alt="Artgift"
@@ -496,11 +498,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">Artgift</h3>
-                  <p className="text-gold-400 font-bold mb-6 text-2xl">$129.99</p>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-2 text-gold-100">Artgift</h3>
+                  <p className="text-gold-400 font-bold mb-4 text-xl">$129.99</p>
                   <Link href="/shop/product/4">
-                    <Button variant="gold" className="w-full py-5 text-base">
+                    <Button variant="gold" className="w-full py-4 text-sm">
                       Add to Cart
                     </Button>
                   </Link>
@@ -511,7 +513,7 @@ export default function Home() {
             {/* Product 5 */}
             <ScrollReveal delay={0.5}>
               <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-80">
+                <div className="relative h-72">
                   <Image
                     src="/images/SingleSachet.png"
                     alt="Single Sachet"
@@ -520,11 +522,11 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-8">
-                  <h3 className="text-xl font-bold mb-3 text-gold-100">Single Sachet</h3>
-                  <p className="text-gold-400 font-bold mb-6 text-2xl">$29.99</p>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-2 text-gold-100">Single Sachet</h3>
+                  <p className="text-gold-400 font-bold mb-4 text-xl">$29.99</p>
                   <Link href="/shop/product/5">
-                    <Button variant="gold" className="w-full py-5 text-base">
+                    <Button variant="gold" className="w-full py-4 text-sm">
                       Add to Cart
                     </Button>
                   </Link>
@@ -533,11 +535,11 @@ export default function Home() {
             </ScrollReveal>
           </div>
 
-          <div className="mt-16 text-center">
+          <div className="mt-12 text-center">
             <ScrollReveal>
               <Link href="/shop">
-                <Button variant="gold" size="lg" className="text-lg px-8 py-6">
-                  View All Products <ArrowRight className="ml-2 h-5 w-5" />
+                <Button variant="gold" size="lg" className="text-base px-6 py-5">
+                  View All Products <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </ScrollReveal>
@@ -549,16 +551,16 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-navy-900 text-gold-100">
+      <section className="py-24 bg-navy-900 text-gold-100">
         <div className="container mx-auto px-4 text-center">
           <ScrollReveal>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">TASTE THE LEGACY OF LUWAK COFFEE</h2>
-            <p className="max-w-3xl mx-auto mb-10 text-gold-200 text-xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">TASTE THE LEGACY OF LUWAK COFFEE</h2>
+            <p className="max-w-3xl mx-auto mb-8 text-gold-200 text-lg">
               Ready to experience coffee like never before? Taste the rich, unique flavor of Indonesia's most exclusive
               coffee — Luwak Coffee.
             </p>
             <Link href="/shop">
-              <Button variant="gold" size="lg" className="text-lg px-10 py-6">
+              <Button variant="gold" size="lg" className="text-base px-8 py-5">
                 ORDER NOW
               </Button>
             </Link>

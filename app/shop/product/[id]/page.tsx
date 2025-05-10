@@ -147,9 +147,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             </div>
           </div>
         </div>
-        <div className="w-full">
-          <GoldDivider />
-        </div>
       </section>
 
       {/* Product Details */}
