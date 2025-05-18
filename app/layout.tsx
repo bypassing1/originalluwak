@@ -5,6 +5,7 @@ import "./globals.css"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
+import { LanguageProvider } from "@/context/language-context"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -27,13 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${montserrat.variable} font-montserrat antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <div className="min-h-screen bg-navy-950 text-gold-50 flex flex-col">
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+            <div className="min-h-screen bg-navy-950 text-gold-50 flex flex-col">
+              <Navbar />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   )

@@ -7,10 +7,13 @@ import { Menu, X, ShoppingBag, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/context/language-context"
+import LanguageSwitcher from "./language-switcher"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,29 +50,30 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             <Link href="/" className="text-gold-100 hover:text-gold-400 font-medium text-xs uppercase tracking-wider">
-              Home
+              {t("nav.home")}
             </Link>
             <Link
               href="/our-story"
               className="text-gold-100 hover:text-gold-400 font-medium text-xs uppercase tracking-wider"
             >
-              Our Story
+              {t("nav.our_story")}
             </Link>
             <Link
               href="/shop"
               className="text-gold-100 hover:text-gold-400 font-medium text-xs uppercase tracking-wider"
             >
-              Shop
+              {t("nav.shop")}
             </Link>
             <Link
               href="/gift-sets"
               className="text-gold-100 hover:text-gold-400 font-medium text-xs uppercase tracking-wider"
             >
-              Gift Sets
+              {t("nav.gift_sets")}
             </Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-3">
+            <LanguageSwitcher />
             <button aria-label="Search" className="text-gold-100 hover:text-gold-400">
               <Search className="h-4 w-4" />
             </button>
@@ -80,7 +84,7 @@ export default function Navbar() {
               </span>
             </Link>
             <Button variant="gold" size="sm" className="text-xs h-7 px-3">
-              Shop Now
+              {t("nav.shop_now")}
             </Button>
           </div>
 
@@ -116,32 +120,32 @@ export default function Navbar() {
                   className="text-gold-100 py-1.5 text-xs uppercase tracking-wider"
                   onClick={() => setIsOpen(false)}
                 >
-                  Home
+                  {t("nav.home")}
                 </Link>
                 <Link
                   href="/our-story"
                   className="text-gold-100 py-1.5 text-xs uppercase tracking-wider"
                   onClick={() => setIsOpen(false)}
                 >
-                  Our Story
+                  {t("nav.our_story")}
                 </Link>
                 <Link
                   href="/shop"
                   className="text-gold-100 py-1.5 text-xs uppercase tracking-wider"
                   onClick={() => setIsOpen(false)}
                 >
-                  Shop
+                  {t("nav.shop")}
                 </Link>
                 <Link
                   href="/gift-sets"
                   className="text-gold-100 py-1.5 text-xs uppercase tracking-wider"
                   onClick={() => setIsOpen(false)}
                 >
-                  Gift Sets
+                  {t("nav.gift_sets")}
                 </Link>
                 <div className="pt-3">
                   <Button variant="gold" size="sm" className="w-full text-xs">
-                    Shop Now
+                    {t("nav.shop_now")}
                   </Button>
                 </div>
               </nav>

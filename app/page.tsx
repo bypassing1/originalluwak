@@ -11,8 +11,10 @@ import { ArrowRight, Award, Coffee, Leaf, Star } from "lucide-react"
 import { motion } from "framer-motion"
 import { VideoModal } from "@/components/ui/video-modal"
 import { NavigationGrid } from "@/components/navigation-grid"
+import { useLanguage } from "@/context/language-context"
 
 export default function Home() {
+  const { t } = useLanguage()
   const [videoModal, setVideoModal] = useState<{
     isOpen: boolean
     title: string
@@ -60,20 +62,14 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gold-100">
-                DISCOVER THE RICH TASTE OF INDONESIA
-              </h1>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gold-100">{t("home.hero.title")}</h1>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <p className="text-lg md:text-xl mb-8 text-gold-200 leading-relaxed">
-                Welcome to Original Luwak, where the ancient tradition of Luwak Coffee meets modern-day passion for the
-                finest coffee in the world. Grown in the lush landscapes of Indonesia, our premium Civet Coffee offers
-                an unparalleled taste that's rich, smooth, and unforgettable.
-              </p>
+              <p className="text-lg md:text-xl mb-8 text-gold-200 leading-relaxed">{t("home.hero.subtitle")}</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -83,12 +79,12 @@ export default function Home() {
             >
               <Link href="/shop">
                 <Button variant="gold" size="lg" className="text-base px-6 py-5 w-full sm:w-auto">
-                  Shop Now
+                  {t("home.hero.shop_now")}
                 </Button>
               </Link>
               <Link href="/our-story">
                 <Button variant="gold-outline" size="lg" className="text-base px-6 py-5 w-full sm:w-auto">
-                  Our Story
+                  {t("home.hero.our_story")}
                 </Button>
               </Link>
             </motion.div>
@@ -104,10 +100,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <span className="text-gold-400 text-base uppercase tracking-wider">LUWAK COFFEE</span>
+              <span className="text-gold-400 text-base uppercase tracking-wider">{t("home.what_is.pre_title")}</span>
               <SectionHeading
-                title="WHAT IS LUWAK COFFEE?"
-                subtitle="WORLD'S RAREST & MOST EXPENSIVE COFFEE"
+                title={t("home.what_is.title")}
+                subtitle={t("home.what_is.subtitle")}
                 center
                 className="mt-3"
               />
@@ -117,18 +113,8 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <ScrollReveal direction="left">
               <div>
-                <p className="text-gold-200 mb-6 leading-relaxed text-base">
-                  Luwak Coffee, also known as Wild Civet Coffee, is one of the rarest and most exquisite coffee
-                  varieties in the world. This unique coffee is produced by the wild civet, a small mammal native to
-                  Southeast Asia. The process starts when the wild civet eats the ripest coffee cherries, which then
-                  pass through its digestive system. What makes this process so special is how the cherries are
-                  fermented inside the civet's stomach, imparting a unique flavor profile that cannot be replicated
-                  elsewhere.
-                </p>
-                <p className="text-gold-200 mb-8 leading-relaxed text-base">
-                  The beans are then carefully handpicked from the wild civet's droppings, cleaned, and roasted to
-                  perfection, ensuring a cup of coffee that is truly extraordinary.
-                </p>
+                <p className="text-gold-200 mb-6 leading-relaxed text-base">{t("home.what_is.description1")}</p>
+                <p className="text-gold-200 mb-8 leading-relaxed text-base">{t("home.what_is.description2")}</p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
                     variant="gold"
@@ -140,7 +126,7 @@ export default function Home() {
                       )
                     }
                   >
-                    Watch Wild Luwak Video
+                    {t("home.what_is.watch_wild")}
                   </Button>
                   <Button
                     variant="gold-outline"
@@ -152,7 +138,7 @@ export default function Home() {
                       )
                     }
                   >
-                    Watch Foraging Video
+                    {t("home.what_is.watch_foraging")}
                   </Button>
                 </div>
               </div>
@@ -180,8 +166,8 @@ export default function Home() {
         <div className="container mx-auto px-4 pt-6">
           <ScrollReveal>
             <SectionHeading
-              title="THE ART OF LUWAK COFFEE PRODUCTION"
-              subtitle="A TRADITION PASSED DOWN THROUGH GENERATIONS"
+              title={t("home.production.title")}
+              subtitle={t("home.production.subtitle")}
               center
               className="mb-16"
             />
@@ -272,8 +258,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <SectionHeading
-              title="WHY CHOOSE OUR LUWAK COFFEE?"
-              subtitle="UNPARALLELED QUALITY AND TASTE"
+              title={t("home.why_choose.title")}
+              subtitle={t("home.why_choose.subtitle")}
               center
               className="mb-16"
             />
@@ -283,33 +269,24 @@ export default function Home() {
             <ScrollReveal delay={0.1}>
               <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
                 <Coffee className="h-12 w-12 mb-5 text-gold-400" />
-                <h3 className="text-xl font-bold mb-3 text-gold-100">Authentic Indonesian Flavor</h3>
-                <p className="text-gold-300 text-base">
-                  Experience the true essence of Indonesian coffee with every sip. Our Civet Coffee offers a rich,
-                  velvety flavor with notes of chocolate, caramel, and a hint of spice.
-                </p>
+                <h3 className="text-xl font-bold mb-3 text-gold-100">{t("home.why_choose.flavor.title")}</h3>
+                <p className="text-gold-300 text-base">{t("home.why_choose.flavor.desc")}</p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
               <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
                 <Leaf className="h-12 w-12 mb-5 text-gold-400" />
-                <h3 className="text-xl font-bold mb-3 text-gold-100">Eco-Friendly and Sustainable</h3>
-                <p className="text-gold-300 text-base">
-                  We work with local farmers who practice sustainable farming methods, ensuring that the production of
-                  Luwak Coffee benefits both the environment and the communities that rely on it.
-                </p>
+                <h3 className="text-xl font-bold mb-3 text-gold-100">{t("home.why_choose.eco.title")}</h3>
+                <p className="text-gold-300 text-base">{t("home.why_choose.eco.desc")}</p>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
               <div className="bg-navy-800/50 p-6 rounded-lg border border-gold-900/30 shadow-lg transform transition-transform duration-300 hover:translate-y-[-5px] h-full">
                 <Award className="h-12 w-12 mb-5 text-gold-400" />
-                <h3 className="text-xl font-bold mb-3 text-gold-100">Rare and Exclusive</h3>
-                <p className="text-gold-300 text-base">
-                  Due to its labor-intensive production process, Luwak Coffee is a rare treasure. Each cup is an
-                  indulgence that connects you with Indonesia's rich coffee heritage.
-                </p>
+                <h3 className="text-xl font-bold mb-3 text-gold-100">{t("home.why_choose.rare.title")}</h3>
+                <p className="text-gold-300 text-base">{t("home.why_choose.rare.desc")}</p>
               </div>
             </ScrollReveal>
 
@@ -335,11 +312,8 @@ export default function Home() {
                     <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gold-100">Perfect for Gifting</h3>
-                <p className="text-gold-300 text-base">
-                  Our beautifully packaged Luwak Coffee makes a perfect gift for coffee connoisseurs or anyone who
-                  appreciates high-quality, unique coffee.
-                </p>
+                <h3 className="text-xl font-bold mb-3 text-gold-100">{t("home.why_choose.gift.title")}</h3>
+                <p className="text-gold-300 text-base">{t("home.why_choose.gift.desc")}</p>
               </div>
             </ScrollReveal>
           </div>
@@ -396,156 +370,236 @@ export default function Home() {
             </ScrollReveal>
           </div>
         </div>
-        <div className="w-full">
-          <GoldDivider />
-        </div>
       </section>
 
       {/* Product Showcase */}
       <section className="py-24 bg-navy-950 relative">
+        <div className="w-full">
+          <GoldDivider className="transform rotate-180" />
+        </div>
         <div className="container mx-auto px-4 pt-6">
           <ScrollReveal>
-            <SectionHeading
-              title="OUR PREMIUM PRODUCTS"
-              subtitle="CRAFTED WITH PASSION AND EXPERTISE"
-              center
-              className="mb-16"
-            />
+            <div className="text-center mb-16">
+              <span className="text-gold-400 text-sm uppercase tracking-widest font-medium">
+                {t("home.products.luxury")}
+              </span>
+              <SectionHeading
+                title={t("home.products.title")}
+                subtitle={t("home.products.subtitle")}
+                center
+                className="mt-3"
+              />
+            </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Featured Product */}
+          <ScrollReveal>
+            <div className="bg-navy-900/60 rounded-xl overflow-hidden border border-gold-900/30 shadow-2xl mb-16 backdrop-blur-sm">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative h-[400px] md:h-auto overflow-hidden">
+                  <Image
+                    src="/images/Giftset.png"
+                    alt="Premium Gift Set"
+                    fill
+                    className="object-contain p-8 scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-navy-900/90 hidden md:block"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy-900/90 md:hidden"></div>
+                </div>
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <div className="inline-block bg-gold-600/20 text-gold-400 text-xs px-3 py-1 rounded-full mb-4">
+                    {t("home.products.featured")}
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gold-100">Premium Gift Set</h3>
+                  <p className="text-gold-200 mb-6 leading-relaxed">
+                    Experience the epitome of luxury with our signature gift set, featuring our finest wild-sourced Kopi
+                    Luwak. Each set is meticulously crafted to showcase the authentic flavor that has made this coffee
+                    legendary.
+                  </p>
+                  <div className="flex items-end justify-between mb-8">
+                    <div>
+                      <p className="text-gold-400 font-bold text-3xl">$89.99</p>
+                      <p className="text-sm text-gold-300">{t("home.products.limited")}</p>
+                    </div>
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 fill-gold-400 text-gold-400" />
+                      ))}
+                    </div>
+                  </div>
+                  <Link href="/shop/product/2">
+                    <Button variant="gold" size="lg" className="w-full py-6 text-base group">
+                      {t("home.products.discover")}
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Product 1 */}
             <ScrollReveal delay={0.1}>
-              <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-72">
+              <div className="bg-navy-900/40 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-gold-900/20 group">
+                <div className="relative h-64 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-navy-950/30 to-transparent z-10"></div>
                   <Image
                     src="/images/StandingPouch.png"
                     alt="Standing Pouch"
                     fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-gold-100">Standing Pouch</h3>
-                  <p className="text-gold-400 font-bold mb-4 text-xl">$49.99</p>
-                  <Link href="/shop/product/1">
-                    <Button variant="gold" className="w-full py-4 text-sm">
-                      Add to Cart
-                    </Button>
-                  </Link>
+                <div className="p-6 border-t border-gold-900/20">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="text-lg font-bold text-gold-100">Standing Pouch</h3>
+                    <span className="bg-gold-600/20 text-gold-400 text-xs px-2 py-1 rounded-full">250g</span>
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="text-gold-400 font-bold text-xl">$49.99</p>
+                    <Link href="/shop/product/1">
+                      <Button variant="gold" size="sm" className="rounded-full w-10 h-10 p-0 group">
+                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
 
             {/* Product 2 */}
             <ScrollReveal delay={0.2}>
-              <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-72">
+              <div className="bg-navy-900/40 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-gold-900/20 group">
+                <div className="relative h-64 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-navy-950/30 to-transparent z-10"></div>
                   <Image
-                    src="/images/Giftset.png"
-                    alt="GiftSet"
+                    src="/images/Artgift.png"
+                    alt="Artgift"
                     fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-gold-100">GiftSet</h3>
-                  <p className="text-gold-400 font-bold mb-4 text-xl">$89.99</p>
-                  <Link href="/shop/product/2">
-                    <Button variant="gold" className="w-full py-4 text-sm">
-                      Add to Cart
-                    </Button>
-                  </Link>
+                <div className="p-6 border-t border-gold-900/20">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="text-lg font-bold text-gold-100">Artgift</h3>
+                    <span className="bg-gold-600/20 text-gold-400 text-xs px-2 py-1 rounded-full">Premium</span>
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="text-gold-400 font-bold text-xl">$129.99</p>
+                    <Link href="/shop/product/4">
+                      <Button variant="gold" size="sm" className="rounded-full w-10 h-10 p-0 group">
+                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
 
             {/* Product 3 */}
             <ScrollReveal delay={0.3}>
-              <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-72">
+              <div className="bg-navy-900/40 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-gold-900/20 group">
+                <div className="relative h-64 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-navy-950/30 to-transparent z-10"></div>
                   <Image
                     src="/images/AcehCraftGiftSet.png"
                     alt="Aceh Craft Gift Set"
                     fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-gold-100">Aceh Craft Gift Set</h3>
-                  <p className="text-gold-400 font-bold mb-4 text-xl">$79.99</p>
-                  <Link href="/shop/product/3">
-                    <Button variant="gold" className="w-full py-4 text-sm">
-                      Add to Cart
-                    </Button>
-                  </Link>
+                <div className="p-6 border-t border-gold-900/20">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="text-lg font-bold text-gold-100">Aceh Craft Set</h3>
+                    <span className="bg-gold-600/20 text-gold-400 text-xs px-2 py-1 rounded-full">Handcrafted</span>
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="text-gold-400 font-bold text-xl">$79.99</p>
+                    <Link href="/shop/product/3">
+                      <Button variant="gold" size="sm" className="rounded-full w-10 h-10 p-0 group">
+                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
 
             {/* Product 4 */}
             <ScrollReveal delay={0.4}>
-              <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-72">
-                  <Image
-                    src="/images/Artgift.png"
-                    alt="Artgift"
-                    fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-gold-100">Artgift</h3>
-                  <p className="text-gold-400 font-bold mb-4 text-xl">$129.99</p>
-                  <Link href="/shop/product/4">
-                    <Button variant="gold" className="w-full py-4 text-sm">
-                      Add to Cart
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            {/* Product 5 */}
-            <ScrollReveal delay={0.5}>
-              <div className="bg-navy-900 rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-transform duration-300 hover:translate-y-[-5px] group">
-                <div className="relative h-72">
+              <div className="bg-navy-900/40 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg border border-gold-900/30 transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-gold-900/20 group">
+                <div className="relative h-64 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-b from-navy-950/30 to-transparent z-10"></div>
                   <Image
                     src="/images/SingleSachet.png"
                     alt="Single Sachet"
                     fill
-                    className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent"></div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold mb-2 text-gold-100">Single Sachet</h3>
-                  <p className="text-gold-400 font-bold mb-4 text-xl">$29.99</p>
-                  <Link href="/shop/product/5">
-                    <Button variant="gold" className="w-full py-4 text-sm">
-                      Add to Cart
-                    </Button>
-                  </Link>
+                <div className="p-6 border-t border-gold-900/20">
+                  <div className="flex justify-between items-center mb-3">
+                    <h3 className="text-lg font-bold text-gold-100">Single Sachet</h3>
+                    <span className="bg-gold-600/20 text-gold-400 text-xs px-2 py-1 rounded-full">Travel</span>
+                  </div>
+                  <div className="flex items-center mb-4">
+                    <div className="flex">
+                      {[...Array(4)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
+                      ))}
+                      {[...Array(1)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 text-navy-700" />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="text-gold-400 font-bold text-xl">$29.99</p>
+                    <Link href="/shop/product/5">
+                      <Button variant="gold" size="sm" className="rounded-full w-10 h-10 p-0 group">
+                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-16 text-center">
             <ScrollReveal>
-              <Link href="/shop">
-                <Button variant="gold" size="lg" className="text-base px-6 py-5">
-                  View All Products <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+              <div className="inline-block bg-navy-900/60 backdrop-blur-sm p-1 rounded-full border border-gold-900/30">
+                <Link href="/shop">
+                  <Button variant="gold" size="lg" className="text-base px-8 py-5 rounded-full">
+                    {t("home.products.view_all")} <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
             </ScrollReveal>
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full mt-20">
           <GoldDivider />
         </div>
       </section>
@@ -554,14 +608,11 @@ export default function Home() {
       <section className="py-24 bg-navy-900 text-gold-100">
         <div className="container mx-auto px-4 text-center">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">TASTE THE LEGACY OF LUWAK COFFEE</h2>
-            <p className="max-w-3xl mx-auto mb-8 text-gold-200 text-lg">
-              Ready to experience coffee like never before? Taste the rich, unique flavor of Indonesia's most exclusive
-              coffee — Luwak Coffee.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t("home.cta.title")}</h2>
+            <p className="max-w-3xl mx-auto mb-8 text-gold-200 text-lg">{t("home.cta.subtitle")}</p>
             <Link href="/shop">
               <Button variant="gold" size="lg" className="text-base px-8 py-5">
-                ORDER NOW
+                {t("home.cta.order")}
               </Button>
             </Link>
           </ScrollReveal>

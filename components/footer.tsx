@@ -1,11 +1,16 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Instagram, Twitter, Youtube, Mail } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { GoldDivider } from "@/components/ui/gold-divider"
+import { useLanguage } from "@/context/language-context"
 
 export default function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="bg-navy-900 text-gold-100 border-t border-gold-900/30">
       <GoldDivider className="transform rotate-180" />
@@ -43,7 +48,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base font-semibold mb-3">Quick Links</h3>
+            <h3 className="text-base font-semibold mb-3">{t("footer.quick_links")}</h3>
             <ul className="space-y-1.5 text-xs">
               <li>
                 <Link href="/" className="text-gold-200 hover:text-gold-400 transition-colors">
@@ -94,7 +99,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base font-semibold mb-3">Information</h3>
+            <h3 className="text-base font-semibold mb-3">{t("footer.information")}</h3>
             <ul className="space-y-1.5 text-xs">
               <li>
                 <Link href="/shipping" className="text-gold-200 hover:text-gold-400 transition-colors">
@@ -120,10 +125,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base font-semibold mb-3">Newsletter</h3>
-            <p className="text-xs mb-3 text-gold-200">
-              Subscribe to receive updates, access to exclusive deals, and more.
-            </p>
+            <h3 className="text-base font-semibold mb-3">{t("footer.newsletter")}</h3>
+            <p className="text-xs mb-3 text-gold-200">{t("footer.newsletter_desc")}</p>
             <div className="flex flex-col space-y-2">
               <Input
                 type="email"
@@ -131,7 +134,7 @@ export default function Footer() {
                 className="bg-navy-800 border-gold-900/50 text-gold-100 placeholder:text-gold-500/50 h-8 text-xs"
               />
               <Button variant="gold" size="sm" className="h-8 text-xs">
-                Subscribe
+                {t("footer.subscribe")}
               </Button>
             </div>
           </div>
@@ -139,7 +142,7 @@ export default function Footer() {
 
         <div className="border-t border-gold-900/30 mt-6 pt-4 flex flex-col md:flex-row justify-between items-center">
           <p className="text-xs text-gold-400">
-            &copy; {new Date().getFullYear()} Original Luwak. All rights reserved.
+            &copy; {new Date().getFullYear()} Original Luwak. {t("footer.all_rights_reserved")}
           </p>
           <div className="flex items-center mt-2 md:mt-0">
             <Mail className="h-3 w-3 mr-1 text-gold-400" />
