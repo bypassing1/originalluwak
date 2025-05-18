@@ -143,7 +143,11 @@ export default function Navbar() {
                 >
                   {t("nav.gift_sets")}
                 </Link>
-                <div className="pt-3">
+                <div className="pt-3 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gold-100 text-xs uppercase tracking-wider">{t("nav.language")}</span>
+                    <LanguageSwitcher />
+                  </div>
                   <Button variant="gold" size="sm" className="w-full text-xs">
                     {t("nav.shop_now")}
                   </Button>

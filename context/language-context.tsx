@@ -22,6 +22,7 @@ const translations = {
     "nav.shop": "Shop",
     "nav.gift_sets": "Gift Sets",
     "nav.shop_now": "Shop Now",
+    "nav.language": "Language",
 
     // Footer
     "footer.quick_links": "Quick Links",
@@ -86,6 +87,7 @@ const translations = {
     "nav.shop": "Belanja",
     "nav.gift_sets": "Paket Hadiah",
     "nav.shop_now": "Beli Sekarang",
+    "nav.language": "Bahasa",
 
     // Footer
     "footer.quick_links": "Tautan Cepat",
