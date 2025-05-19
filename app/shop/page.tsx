@@ -319,7 +319,7 @@ export default function Shop() {
                             <p className="text-sm text-gold-300">{product.weight}</p>
                           </div>
                           <Button variant="gold" size="sm" className="py-5 px-4">
-                            Add to Cart
+                            Buy
                           </Button>
                         </div>
                       </div>
